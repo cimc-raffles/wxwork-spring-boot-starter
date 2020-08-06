@@ -30,6 +30,10 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
+		TokenProperty tokenProperty = this.properties.getToken();
+		if(null == tokenProperty || null == tokenProperty.getEnable() || ! tokenProperty.getEnable())
+			return true;
 
 		String header = request.getHeader(Constant.AUTHORIZATION_HEADER);
 
@@ -42,7 +46,6 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 			throw new UnauthorizedException();
 
 		try {
-			TokenProperty tokenProperty = this.properties.getToken();
 			String secret = tokenProperty.getSecret();
 			Algorithm algorithm = Algorithm.HMAC256(secret);
 			JWTVerifier verifier = JWT.require(algorithm).build();

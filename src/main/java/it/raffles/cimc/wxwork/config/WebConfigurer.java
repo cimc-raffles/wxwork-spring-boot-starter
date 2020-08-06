@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistration
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import it.raffles.cimc.wxwork.config.WxworkProperty.TokenProperty;
 import it.raffles.cimc.wxwork.interceptor.AuthenticationInterceptor;
 
 @Configuration
@@ -27,10 +26,7 @@ public class WebConfigurer implements WebMvcConfigurer {
 
 	@Bean
 	public HandlerInterceptor authenticationInterceptor() {
-		TokenProperty tokenProperty = this.properties.getToken();
-		return null == tokenProperty || null == tokenProperty.getEnable() || !tokenProperty.getEnable()
-				? new NonInterceptor()
-				: new AuthenticationInterceptor();
+		return  new AuthenticationInterceptor() ;
 	}
 }
 
