@@ -6,21 +6,21 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "wxwork")
 public class WxworkProperty {
-	
+
 	private String id;
-	
+
 	private TokenProperty token;
 
 	private List<AppProperty> apps;
 
 	public static class TokenProperty {
-		
-		private Boolean enable ;
+
+		private Boolean enable;
 
 		private String secret;
 
 		private String[] exclude;
-		
+
 		public Boolean getEnable() {
 			return enable;
 		}
@@ -49,8 +49,8 @@ public class WxworkProperty {
 	public static class AppProperty {
 
 		private Long id;
-		
-		private String name ;
+
+		private String name;
 
 		private String secret;
 
@@ -63,7 +63,7 @@ public class WxworkProperty {
 		public void setId(Long id) {
 			this.id = id;
 		}
-		
+
 		public String getName() {
 			return name;
 		}

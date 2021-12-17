@@ -26,7 +26,7 @@ public class WebConfigurer implements WebMvcConfigurer {
 
 	@Bean
 	public HandlerInterceptor authenticationInterceptor() {
-		return  new AuthenticationInterceptor() ;
+		return new AuthenticationInterceptor();
 	}
 }
 
