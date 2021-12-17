@@ -99,7 +99,7 @@ public class WxworkService {
 
 		private TokenProperty getTokenProperty() {
 			TokenProperty tokenProperty = properties.getToken();
-			if (null == tokenProperty || null == tokenProperty.getEnable() || !tokenProperty.getEnable())
+			if (null == tokenProperty)
 				return null;
 			return tokenProperty;
 		}
