@@ -3,7 +3,8 @@ package it.raffles.cimc.wxwork.service;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -13,7 +14,8 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import it.raffles.cimc.wxwork.config.WxworkProperty;
 import it.raffles.cimc.wxwork.config.WxworkProperty.TokenProperty;
 
-@Component
+@Configuration
+@EnableConfigurationProperties(WxworkProperty.class)
 public class WxworkTokenService {
 
 	@Autowired
