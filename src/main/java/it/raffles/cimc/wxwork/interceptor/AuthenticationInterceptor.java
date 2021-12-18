@@ -28,6 +28,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		System.out.println(null==tokenService);
 		WxworkProperty properties = tokenService.getWxworkProperty();
 		TokenProperty tokenProperty = properties.getToken();
 		if (null == tokenProperty || null == tokenProperty.getEnable() || !tokenProperty.getEnable())

@@ -20,7 +20,9 @@ public class WebConfigurer implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		InterceptorRegistration registration = registry.addInterceptor(authenticationInterceptor());
 		registration.addPathPatterns("/**");
-		if (null != this.properties && null != this.properties.getToken())
+		if (null != this.properties && null != this.properties.getToken()
+				&& null != this.properties.getToken().getExclude()
+				&& 0 < this.properties.getToken().getExclude().length)
 			registration.excludePathPatterns(this.properties.getToken().getExclude());
 	}
 
