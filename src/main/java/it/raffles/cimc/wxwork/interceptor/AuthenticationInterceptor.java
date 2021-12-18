@@ -18,17 +18,17 @@ import it.raffles.cimc.wxwork.config.WxworkProperty;
 import it.raffles.cimc.wxwork.config.WxworkProperty.TokenProperty;
 import it.raffles.cimc.wxwork.exception.CustomJWTVerificationException;
 import it.raffles.cimc.wxwork.exception.UnauthorizedException;
-import it.raffles.cimc.wxwork.service.WxworkService;
+import it.raffles.cimc.wxwork.service.WxworkTokenService;
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
 	@Autowired
-	private WxworkService service;
-
+	private WxworkTokenService tokenService;
+	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		WxworkProperty properties = this.service.getWxworkProperty();
+		WxworkProperty properties = tokenService.getWxworkProperty();
 		TokenProperty tokenProperty = properties.getToken();
 		if (null == tokenProperty || null == tokenProperty.getEnable() || !tokenProperty.getEnable())
 			return true;
@@ -44,7 +44,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 			throw new UnauthorizedException();
 
 		try {
-			DecodedJWT decodedJwt = this.service.getTokenService().getDecodedJWT(token, tokenProperty);
+			DecodedJWT decodedJwt = tokenService.getDecodedJWT(token, tokenProperty);
 			List<String> audiences = decodedJwt.getAudience();
 
 			if (CollectionUtils.isEmpty(audiences))
