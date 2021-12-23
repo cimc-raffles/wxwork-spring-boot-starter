@@ -46,6 +46,7 @@ public class WxworkService {
 			configStorage.setAgentId(app.getId().intValue());
 			configStorage.setCorpSecret(app.getSecret());
 			configStorage.setAesKey(app.getAesKey());
+			configStorage.setOauth2redirectUri(app.getRedirectUrl());
 			WxCpServiceImpl service = new WxCpServiceImpl();
 			service.setWxCpConfigStorage(configStorage);
 			routers.put(configStorage.getAgentId(), this.newRouter(service));

@@ -56,6 +56,8 @@ public class WxworkProperty {
 
 		private String aesKey;
 
+		private String redirectUrl;
+
 		public Long getId() {
 			return id;
 		}
@@ -86,6 +88,14 @@ public class WxworkProperty {
 
 		public void setAesKey(String aesKey) {
 			this.aesKey = aesKey;
+		}
+
+		public String getRedirectUrl() {
+			return redirectUrl;
+		}
+
+		public void setRedirectUrl(String redirectUrl) {
+			this.redirectUrl = redirectUrl;
 		}
 
 	}
