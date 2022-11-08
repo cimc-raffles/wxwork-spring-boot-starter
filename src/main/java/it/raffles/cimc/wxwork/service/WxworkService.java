@@ -30,6 +30,10 @@ public class WxworkService {
 		return routers;
 	}
 
+	public static Map<Integer, WxCpService> getServices() {
+		return services;
+	}
+
 	public static WxCpService getServices(Integer agentId) {
 		return services.get(agentId);
 	}
