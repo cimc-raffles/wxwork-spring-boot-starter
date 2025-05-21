@@ -2,9 +2,6 @@ package it.raffles.cimc.wxwork.interceptor;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -19,6 +16,8 @@ import it.raffles.cimc.wxwork.config.WxworkProperty.TokenProperty;
 import it.raffles.cimc.wxwork.exception.CustomJWTVerificationException;
 import it.raffles.cimc.wxwork.exception.UnauthorizedException;
 import it.raffles.cimc.wxwork.service.WxworkTokenService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class AuthenticationInterceptor implements HandlerInterceptor {
 

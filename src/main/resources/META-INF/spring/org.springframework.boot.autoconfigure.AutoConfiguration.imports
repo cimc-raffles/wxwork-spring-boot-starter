@@ -1,0 +1,3 @@
+it.raffles.cimc.wxwork.service.WxworkService
+it.raffles.cimc.wxwork.service.WxworkTokenService
+it.raffles.cimc.wxwork.config.WebConfigurer
